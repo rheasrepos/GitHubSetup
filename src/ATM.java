@@ -34,7 +34,7 @@ public class ATM {
 			String inputBox = JOptionPane.showInputDialog("Input your deposit amount ");
 			deposit = Double.parseDouble(inputBox);
 			
-	        String accntName = JOptionPane.showInputDialog("What's your account number, 0 if you don't have one");
+	        String accntName = JOptionPane.showInputDialog("What's your account name, 0 if you don't have one");
 	      
 	        
 			if(accntName.equals( "0")) {
