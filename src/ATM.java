@@ -11,19 +11,44 @@ public class ATM {
 		account = new HashMap<String, Double>();
 	}
 
-	public String deposit(String ID, Double deposit ) {
-		
+	public void deposit(String ID, Double deposit ) {
+		if(deposit<0)
+			return;
 		if(!account.containsKey(ID)){
 			account.put(ID, deposit);
-			return ID;
+			System.out.println("User "+ID+" deposited $"+deposit);
+			return;
 		}
-		account.replace(ID, account.get(ID) + deposit);
+		account.put(ID, account.get(ID) + deposit);
+		System.out.println("User "+ID+" deposited $"+deposit);
 
-		return ID;
+	}
+	public void withdraw(String ID, Double money)
+	{
+		if(!account.containsKey(ID))
+		{
+			System.out.println("Error: Account "+ID +" not found");
+			return;
+		}
+		if(account.get(ID)<money)
+		{
+			System.out.println("Not enough in your balance, User "+ID);
+			return;
+		}
+		account.put(ID, account.get(ID)-money);
+		System.out.println("User "+ID+" withdrew $"+money);
+	}
+	public String checkBalance(String ID)
+	{
+		if(!account.containsKey(ID))
+			return "Error: Account "+ID +" not found";
+		return "User " +ID+" - balance: $"+account.get(ID);
+		
+		
 	}
 	
 	
-	
+	/*
 	public static void main (String []args) {
 		ATM user = new ATM();
 		Double deposit;
@@ -48,10 +73,9 @@ public class ATM {
 			
 			}
 		
-			JOptionPane.showMessageDialog(null, "Byeeee");
-		
-			
+			JOptionPane.showMessageDialog(null, "Byeeee");			
 		}
+		*/
 		
 		
 		
