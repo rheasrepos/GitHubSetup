@@ -19,7 +19,8 @@ public class ATM {
 			System.out.println("User "+ID+" deposited $"+deposit);
 			return;
 		}
-		account.put(ID, account.get(ID) + deposit);
+		account.put(ID, account.get(ID) + deposit);//this is the same as replace, will map to exisiting key not create new one
+		
 		System.out.println("User "+ID+" deposited $"+deposit);
 
 	}
